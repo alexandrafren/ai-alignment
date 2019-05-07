@@ -1,33 +1,246 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding-bottom: 50px;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+button:visited {
+  outline: none;
+  border: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button:focus {
+  outline: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: black;
+  outline: 0;
+}
+
+.ai-nav {
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+  padding: 30px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-height: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-logo {
+  display: inline-block;
+  width: 73px;
+  height: 75px;
+  padding-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-title {
+  display: inline-block;
+  padding-left: 20px;
+  padding-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ai-title-container {
+  display: inline;
+  margin-top: 15px;
+  font-size: 24px;
+}
+
+.senate-container {
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Senator Button Styles */
+
+.senator-buttons {
+  margin-top: 20px;
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 300px;
+  max-height: 300px;
+}
+
+.btn-circle {
+  width: 52px;
+  height: 52px;
+  padding: 6px 0;
+  margin: 1.5px;
+  word-wrap: normal;
+  font-size: 10px;
+  color: rgb(245, 245, 245);
+  line-height: 1.33;
+  border-radius: 50%;
+  border-style: none;
+  transition: opacity 1.5s ease-in;
+  hyphens: auto;
+}
+
+.btn-circle:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.2),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*     Button Colors    */
+.black-democratic {
+  background-color: rgb(74, 128, 213);
+}
+.latino-democratic,
+.latina-democratic,
+.latinx-democratic {
+  background-color: rgb(0, 68, 97);
+}
+.white-democratic {
+  background-color: rgb(39, 59, 208);
+}
+.asian-democratic {
+  background-color: rgb(83, 180, 215);
+}
+.empty-democratic {
+  background-color: rgb(255, 255, 255);
+}
+.white-republican {
+  background-color: rgb(208, 25, 57);
+}
+.black-republican {
+  background-color: rgb(208, 72, 131);
+}
+.latino-republican {
+  background-color: rgb(145, 21, 46);
+}
+.latina-republican {
+  background-color: rgb(145, 21, 46);
+}
+.white-independent {
+  background-color: rgb(147, 40, 144);
+}
+
+.conference-detail-title {
+  padding-top: 15px;
+  min-height: 60px;
+  font-size: 18px;
+}
+
+.conference-detail-data {
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+/* Legend Styles */
+
+.legend {
+  float: left;
+  padding-top: 25px;
+}
+
+#legend-title {
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.legend-lbl {
+  padding-bottom: 8px;
+}
+
+.legend-color {
+  width: 13.5px;
+  height: 13.5px;
+  display: table-cell;
+  padding-bottom: 1px;
+}
+
+.legend-circle {
+  padding-bottom: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.lblname {
+  display: table-cell;
+  padding: 0 5px;
+  font-weight: 0;
+  font-size: 14px;
+}
+
+/* Modal Styles */
+
+.modal-image {
+  border-radius: 5%;
+}
+
+.modal-title-row {
+  flex-direction: column;
+}
+
+.person-title-info {
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .person-title-info {
+    margin-top: 0px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.person-title-bold {
+  color: rgb(108, 108, 108);
+  font-weight: bold;
+}
+
+.unbold-text {
+  font-weight: lighter;
+}
+
+.full-name-title {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.party-title {
+  color: rgb(108, 108, 108);
+}
+
+.district-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 5%;
+}
+
+.district-title {
+  font-weight: bold;
+}
+
+.region-title {
+  font-weight: bold;
+}
+
+.office-title {
+  text-decoration: underline;
+  margin-bottom: -15px;
+  line-height: 1.2;
+}
+
+.modal-bold {
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+}
+
+.modal-contact-lbl {
+  font-size: 14px;
+}
+
+.modal-close-btn {
+  text-align: right;
 }

@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Navbar } from "react-bootstrap";
+import SenateView from "./senateView";
+import "./App.css";
+
+const logo = require("./ai_logo.jpg");
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Navbar className="ai-nav">
+          <div className="header-container">
+            <img className="nav-logo" src={logo} alt="ai-logo" />
+            <span className="nav-title">
+              <div className="ai-title-container">
+                NY State Senate: Legislative Conferences
+              </div>
+            </span>
+          </div>
+        </Navbar>
+        <SenateView />
       </div>
     );
   }
