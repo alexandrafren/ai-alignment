@@ -25,7 +25,7 @@ class Legend extends PureComponent {
     return filteredPeople.length;
   }
 
-  renderLegend({ legendCategories, people, title }) {
+  renderLegend() {
     return legendCategories.map((category, i) => {
       return (
         <div key={category.id} className="legend-lbl">
@@ -33,9 +33,9 @@ class Legend extends PureComponent {
             <div className={this.getClasses(category.id)} />
           </div>
           <div className="lblname">
-            {`${category.label} ${category.party} ${title} `} (
+            {`${category.label} ${category.party} Conference Senators`} (
             {this.getLegendCount({
-              people: people,
+              people: this.props.people,
               party: category.party,
               category: "race",
               value: category.race
@@ -53,11 +53,7 @@ class Legend extends PureComponent {
         <Row>
           <div className="legend">
             <div id="legend-title">Legend</div>
-            {this.renderLegend({
-              legendCategories: legendCategories,
-              people: this.props.people,
-              title: "Conference Senators"
-            })}
+            {this.renderLegend()}
           </div>
         </Row>
       </Container>
