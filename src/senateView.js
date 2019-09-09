@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import Person from "./person";
+import Legend from "./legend";
 import { sortBy, groupBy, flatten } from "lodash";
 import { legendCategories, toolsApiKey } from "./constants";
 
@@ -50,48 +51,6 @@ class SenateView extends Component {
       sortedPeople.push(sortBy(group[key], "attributes.last_name"));
     });
     return flatten(sortedPeople);
-  }
-
-  getClasses(value) {
-    return `legend-circle ${value}`;
-  }
-
-  getLegendCount({ people, party, category, value }) {
-    const peopleByParty = people.filter(person => {
-      return person.attributes.party[0].split(";")[0] === party;
-    });
-
-    const filteredPeople = peopleByParty.filter(person => {
-      if (person.attributes[category]) {
-        return person.attributes[category][0] === value;
-      } else {
-        return peopleByParty;
-      }
-    });
-
-    return filteredPeople.length;
-  }
-
-  renderLegend({ legendCategories, people, title }) {
-    return legendCategories.map((category, i) => {
-      return (
-        <div key={category.id} className="legend-lbl">
-          <div className="legend-color">
-            <div className={this.getClasses(category.id)} />
-          </div>
-          <div className="lblname">
-            {`${category.label} ${category.party} ${title} `} (
-            {this.getLegendCount({
-              people: people,
-              party: category.party,
-              category: "race",
-              value: category.race
-            })}
-            )
-          </div>
-        </div>
-      );
-    });
   }
 
   renderSenators() {
@@ -153,7 +112,6 @@ class SenateView extends Component {
               </Row>
             </Col>
             <Col id="senate-vacancy" key="Vacancy" sm={12} md={12} lg={6}>
-                  <p>There are {vacancies} vacancies currently.</p>
               <Row className="conference-detail-data">
                 <div className="conference-detail-title">
                   <div>
@@ -167,14 +125,7 @@ class SenateView extends Component {
             </Col>
           </Row>
           <Row>
-            <div className="legend">
-              <div id="legend-title">Legend</div>
-              {this.renderLegend({
-                legendCategories: legendCategories,
-                people: this.state.senators,
-                title: "Conference Senators"
-              })}
-            </div>
+            <Legend people={this.state.senators} />
           </Row>
         </Container>
       );
