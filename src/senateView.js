@@ -108,6 +108,7 @@ class SenateView extends Component {
           "Republican Conference"
         )
       );
+      let vacancies = 63 - this.state.senators.length
       return (
         <Container>
           <Row>
@@ -146,6 +147,19 @@ class SenateView extends Component {
                     Republican:
                     <span style={{ fontWeight: "bold" }}>
                       {" " + republicanConference.length}
+                    </span>
+                  </div>
+                </div>
+              </Row>
+            </Col>
+            <Col id="senate-vacancy" key="Vacancy" sm={12} md={12} lg={6}>
+                  <p>There are {vacancies} vacancies currently.</p>
+              <Row className="conference-detail-data">
+                <div className="conference-detail-title">
+                  <div>
+                    Vacant Seats:
+                    <span style={{ fontWeight: "bold" }}>
+                      {" " + vacancies}
                     </span>
                   </div>
                 </div>

@@ -267,6 +267,7 @@ class Person extends Component {
     }
   }
 
+
   render() {
     return (
       <div id={this.props.info.id}>
