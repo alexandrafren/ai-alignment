@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import Person from "./person";
 import Legend from "./legend";
 import { sortBy, groupBy, flatten } from "lodash";
-import { legendCategories, toolsApiKey } from "./constants";
+import { toolsApiKey } from "./constants";
+
 
 const toolsApiUrl = `https://tools.advocacy-institute.org/api/v1/people?reason=Elected&government_body=Senate&page=1&api_key=${toolsApiKey}`;
 
-class SenateView extends Component {
+class SenateView extends PureComponent {
   constructor() {
     super();
     this.state = {
       senators: [],
       toolsApiUrl: toolsApiUrl
     };
-
     this.fetchSenators = this.fetchSenators.bind(this);
     this.addSenators = this.addSenators.bind(this);
   }
@@ -136,5 +136,6 @@ class SenateView extends Component {
     return <div className="senate-container">{this.renderSenators()}</div>;
   }
 }
+
 
 export default SenateView;

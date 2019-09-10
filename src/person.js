@@ -267,6 +267,14 @@ class Person extends Component {
     }
   }
 
+  renderBills() {
+    return(
+      <span className="modal-bold">
+        recieve bills props from Redux?
+      </span>
+    )
+  }
+
 
   render() {
     return (
@@ -376,6 +384,14 @@ class Person extends Component {
                       </div>
                     </div>
                   </Col>
+                </Row>
+                <Row>
+                  <Col sm={6} md={6}>
+                    <div id="bill-info">
+                        Bills Passed This Session:
+                        {this.renderBills()}
+                    </div>
+                  </Col>  
                 </Row>
               </Container>
             </Modal.Body>
