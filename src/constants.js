@@ -27,3 +27,5 @@ export const legendCategories = [
 ];
 
 export const toolsApiKey = process.env.REACT_APP_TOOLS_API_KEY;
+
+export const legApiKey = process.env.OPEN_LEG_API_KEY
