@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navbar } from "react-bootstrap";
 import SenateView from "./senateView";
+import BillView from "./billView"
 import "./App.css";
 
 const logo = require("./ai_logo.jpg");
@@ -20,6 +21,7 @@ class App extends Component {
           </div>
         </Navbar>
         <SenateView />
+        <BillView />
       </div>
     );
   }
