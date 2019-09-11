@@ -2,15 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import combineReducers from './reducers/index'
+import manageBills from './reducers/manageBills'
+import manageSenators from './reducers/manageSenators'
 
-const store = createStore(combineReducers, applyMiddleware(thunk))
+const reducer = combineReducers({
+    manageBills,
+    manageSenators
+})
+
+const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-    <Provider store={store{>
+    <Provider store={store}>
         <App />
     </Provider>, document.getElementById("root"));
 

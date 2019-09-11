@@ -1,6 +1,8 @@
-export default function manageBills(state = { bills: []}, action) {
-    switch (action.type) {
-      default:
-        return state;
-    }
-  };
+const manageBills  = (state = { bills: []}, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
+
+export default manageBills
