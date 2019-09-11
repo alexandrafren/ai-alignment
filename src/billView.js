@@ -18,16 +18,15 @@ class BillView extends PureComponent {
 
   componentDidMount() {
     this.fetchBills(this.state.legApiUrl);
-    console.log(legApiKey)
   }
 
   addBills(result) {
-    result = result.filter(bill => bill.billType.chamber === "SENATE" && bill.billType.resolution === false && bill.status.statusType === "SIGNED_BY_GOV")
+    let manipulateResult = result.result.items.filter(bill => bill.billType.chamber === "SENATE" && bill.billType.resolution === false && bill.status.statusType === "SIGNED_BY_GOV")
     this.setState({
-      bills: [].concat.apply([], [...this.state.bills, result])
+      bills: [].concat.apply([], [...this.state.bills, manipulateResult])
     });
     if (result.offsetEnd !== result.total) {
-       this.fetchBills(this.state.legApiUrl + `offset=${result.offsetEnd}`);
+       this.fetchBills(this.state.legApiUrl + `&offset=${result.offsetEnd}`);
      }
     console.log(this.state.bills)
   }
@@ -35,7 +34,7 @@ class BillView extends PureComponent {
   fetchBills(link) {
     fetch(link)
       .then(response => response.json())
-      .then(result => this.addBills(result.result.items));
+      .then(result => this.addBills(result));
   }
 
 
