@@ -2,16 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import manageBills from './reducers/manageBills'
-import manageSenators from './reducers/manageSenators'
+import reducer from './reducers/reducer'
 
-const reducer = combineReducers({
-    manageBills,
-    manageSenators
-})
 
 const store = createStore(reducer, applyMiddleware(thunk))
 

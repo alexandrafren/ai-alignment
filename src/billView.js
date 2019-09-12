@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { sortBy, groupBy, flatten } from "lodash";
 import { legApiKey } from "./constants";
+import SenateView from './senateView'
 
 const legApiUrl = `https://legislation.nysenate.gov/api/3/bills/2019?sort=signed:DESC&limit=1000&key=${legApiKey}`;
 
@@ -28,7 +29,6 @@ class BillView extends PureComponent {
     if (result.offsetEnd !== result.total) {
        this.fetchBills(this.state.legApiUrl + `&offset=${result.offsetEnd}`);
      }
-    console.log(this.state.bills)
   }
 
   fetchBills(link) {
@@ -37,11 +37,9 @@ class BillView extends PureComponent {
       .then(result => this.addBills(result));
   }
 
-
   render() {
-    return null
+    return (<SenateView />)
   }
 }
-
 
 export default BillView;

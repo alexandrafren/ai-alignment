@@ -20,7 +20,6 @@ class App extends Component {
             </span>
           </div>
         </Navbar>
-        <SenateView />
         <BillView />
       </div>
     );
