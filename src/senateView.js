@@ -5,7 +5,7 @@ import Legend from "./legend";
 import { sortBy, groupBy, flatten } from "lodash";
 import { toolsApiKey } from "./constants";
 
-
+//add a sub-container to senators so that the bills are linked to the appropriate senator
 const toolsApiUrl = `https://tools.advocacy-institute.org/api/v1/people?reason=Elected&government_body=Senate&page=1&api_key=${toolsApiKey}`;
 
 class SenateView extends PureComponent {
@@ -52,6 +52,21 @@ class SenateView extends PureComponent {
     });
     return flatten(sortedPeople);
   }
+
+  sortBills(){
+    this.state.senators.forEach(senator => 
+      console.log(senator.attributes.last_name.toLowerCase())
+      // this.setState({
+      //   senators: update(this.state.senators, {senator: {bills: {this.props.bills.filter()}}})
+      //   })
+    )}
+
+
+  filterBills(name){
+    this.props.bills.filter(b => b.sponsor.member.shortName.toLowerCase() === name.toLowerCase())
+  }
+
+        
 
   renderSenators() {
     if (this.state.senators.length > 0) {
@@ -133,7 +148,7 @@ class SenateView extends PureComponent {
   }
 
   render() {
-    return <div className="senate-container">{this.renderSenators()}</div>;
+    return <div className="senate-container">{this.renderSenators()}{this.sortBills()}</div>;
   }
 }
 

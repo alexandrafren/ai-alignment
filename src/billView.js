@@ -1,6 +1,4 @@
 import React, { PureComponent } from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import { sortBy, groupBy, flatten } from "lodash";
 import { legApiKey } from "./constants";
 import SenateView from './senateView'
 
@@ -37,9 +35,18 @@ class BillView extends PureComponent {
       .then(result => this.addBills(result));
   }
 
+  // sortBills(){
+  //   this.setState({
+  //     bills: this.bills.filt
+  //   })
+  // }
+
   render() {
-    return (<SenateView />)
+    return (<SenateView bills={this.state.bills}/>)
   }
 }
 
 export default BillView;
+
+
+

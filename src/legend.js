@@ -10,18 +10,27 @@ class Legend extends PureComponent {
   }
 
   getLegendCount({ people, party, category, value }) {
-    const peopleByParty = people.filter(person => {
-      return person.attributes.party[0].split(";")[0] === party;
-    });
-
-    const filteredPeople = peopleByParty.filter(person => {
-      if (person.attributes[category]) {
-        return person.attributes[category][0] === value;
-      } else {
-        return peopleByParty;
-      }
-    });
-
+    let filteredPeople = [];
+    if (category === "race"){
+      const peopleByParty = people.filter(person => {
+        return person.attributes.party[0].split(";")[0] === party;
+      });
+  
+       filteredPeople = peopleByParty.filter(person => {
+        if (person.attributes[category]) {
+          return person.attributes[category][0] === value;
+        } else {
+          return peopleByParty;
+        }
+      });
+    }
+    else {
+      filteredPeople = people.filter(person => {
+        if (person.attributes[category]){
+          return person.attributes[category][0] === "Yes"
+        }
+      })
+    }
     return filteredPeople.length;
   }
 
@@ -37,7 +46,7 @@ class Legend extends PureComponent {
             {this.getLegendCount({
               people: this.props.people,
               party: category.party,
-              category: "race",
+              category: category.category,
               value: category.race
             })}
             )
@@ -45,6 +54,10 @@ class Legend extends PureComponent {
         </div>
       );
     });
+    return(
+    <div className="legend-circle">
+    Senate Leadership
+    </div>)
   }
 
   render() {

@@ -14,12 +14,19 @@ class Person extends Component {
     this.renderDistrictInfo = this.renderDistrictInfo.bind(this);
   }
 
+  //Leadership Roles appear to be missing/incorrect for Democratic Party
   get setStyle() {
+    let leadership = "";
+    if (this.props.info.attributes.in_legislative_leadership) {
+      leadership = " conference-leadership"
+    }
     let classes = `btn-circle ${this.props.info.attributes.race[0]
       .toLowerCase()
       .split("/")[0] +
       "-" +
-      this.props.info.attributes.party[0].toLowerCase().split("; ")[0]}`;
+      this.props.info.attributes.party[0].toLowerCase().split("; ")[0]}` +
+      leadership;
+    console.log(classes)
     return classes;
   }
 
@@ -310,7 +317,7 @@ class Person extends Component {
                         height={100}
                         alt="senator"
                       />
-                    </a>
+                  </a>
                   </Col>
                   <Col sm={7} md={9}>
                     <Row className="modal-title-row">

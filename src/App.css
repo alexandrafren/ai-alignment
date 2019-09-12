@@ -136,6 +136,10 @@ a:active {
   left: 0;
 }
 
+.conference-leadership {
+  border: 2px solid black;
+}
+
 /* Legend Styles */
 
 .legend {
