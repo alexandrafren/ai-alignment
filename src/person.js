@@ -26,7 +26,6 @@ class Person extends Component {
       "-" +
       this.props.info.attributes.party[0].toLowerCase().split("; ")[0]}` +
       leadership;
-    console.log(classes)
     return classes;
   }
 
@@ -275,12 +274,19 @@ class Person extends Component {
   }
 
   renderBills() {
-    return(
-      <span className="modal-bold">
-        recieve bills props from Redux?
-      </span>
-    )
-  }
+    if (this.props.bills){
+      let formattedBills = this.props.bills.map(b => <li>{b.title}</li>)
+      return(
+        <span className="modal-bold">
+          {console.log(this.props.bills)}
+          <ul>{formattedBills}</ul>
+        </span>
+      )
+    }
+    else {
+      return(<p>None</p>)
+    }
+  } 
 
 
   render() {

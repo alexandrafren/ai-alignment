@@ -35,12 +35,6 @@ class BillView extends PureComponent {
       .then(result => this.addBills(result));
   }
 
-  // sortBills(){
-  //   this.setState({
-  //     bills: this.bills.filt
-  //   })
-  // }
-
   render() {
     return (<SenateView bills={this.state.bills}/>)
   }
