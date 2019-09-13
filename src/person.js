@@ -277,8 +277,9 @@ class Person extends Component {
   }
 
   renderBills() {
+    let URL = 'https://www.nysenate.gov/legislation/bills/2019/'
     if (this.props.bills){
-      let formattedBills = this.props.bills.map(b => <li>{b.title}</li>)
+      let formattedBills = this.props.bills.map(b => <li><a href={URL + b.basePrintNo}>{b.basePrintNoStr}</a>: {b.title}</li>)
       return(
         <span className="modal-bold">
           <ul>{formattedBills}</ul>
@@ -403,7 +404,7 @@ class Person extends Component {
                 <Row>
                   <Col sm={6} md={6}>
                     <div id="bill-info">
-                        Bills Passed This Session:
+                        Bills Sponsored This Session:
                         {this.renderBills()}
                     </div>
                   </Col>  
