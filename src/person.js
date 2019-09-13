@@ -92,11 +92,16 @@ class Person extends Component {
     }
   }
 
-  renderPhone(field) {
+  fieldSlug(field){
     let fieldSlug = field
-      .replace(/ \//g, "")
-      .replace(/ /g, "_")
-      .toLowerCase();
+    .replace(/ \//g, "")
+    .replace(/ /g, "_")
+    .toLowerCase();
+    return fieldSlug;
+  }
+
+  renderPhone(field) {
+    let fieldSlug = fieldSlug(field)
     if (this.props.info.attributes[fieldSlug]) {
       return (
         <div className="modal-contact-lbl">
@@ -113,10 +118,7 @@ class Person extends Component {
   }
 
   renderAddress(field) {
-    let fieldSlug = field
-      .replace(/ \//g, "")
-      .replace(/ /g, "_")
-      .toLowerCase();
+    let fieldSlug = fieldSlug(field)
     if (this.props.info.attributes[fieldSlug]) {
       return (
         <div>
