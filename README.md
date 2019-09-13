@@ -26,3 +26,7 @@ Please fork the repository and complete the following two items:
    - Please add a feature to the existing Interactive Senate Display, as you see fit, to show users the bill(s) that a given Senator is sponsoring.
 
 Feel welcome to communicate and collaborate with us throughout the process. Happy to help. We look forward to seeing more of your work.
+
+Demo of Changes:
+
+[![Demo of Alignment Assignment for Advocacy Institute](http://img.youtube.com/vi/Psis7DzGa1g/0.jpg)](http://www.youtube.com/watch?v=Psis7DzGa1g "AI AIignment Assignment Demo")
