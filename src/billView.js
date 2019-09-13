@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { legApiKey } from "./constants";
 import SenateView from './senateView'
 
-const legApiUrl = `https://legislation.nysenate.gov/api/3/bills/2019?sort=signed:DESC&limit=1000&key=${legApiKey}&offset=`;
+const legApiUrl = `https://legislation.nysenate.gov/api/3/bills/2019?sort=signed:DESC&limit=1000&key=${legApiKey}`;
 
 class BillView extends PureComponent {
   constructor() {
@@ -41,6 +41,3 @@ class BillView extends PureComponent {
 }
 
 export default BillView;
-
-
-
