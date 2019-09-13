@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Navbar } from "react-bootstrap";
-import SenateView from "./senateView";
 import BillView from "./billView"
 import "./App.css";
 

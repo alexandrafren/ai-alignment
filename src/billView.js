@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { legApiKey } from "./constants";
 import SenateView from './senateView'
 
-const legApiUrl = `https://legislation.nysenate.gov/api/3/bills/2019?sort=signed:DESC&limit=1000&key=${legApiKey}`;
+const legApiUrl = `https://legislation.nysenate.gov/api/3/bills/2019?sort=signed:DESC&limit=1000&key=${legApiKey}&offset=`;
 
 class BillView extends PureComponent {
   constructor() {
@@ -16,7 +16,7 @@ class BillView extends PureComponent {
   }
 
   componentDidMount() {
-    this.fetchBills(this.state.legApiUrl);
+    this.fetchBills(this.state.legApiUrl)
   }
 
   addBills(result) {

@@ -92,6 +92,7 @@ class Person extends Component {
     }
   }
 
+  //function used to slug phone numbers and addresses
   fieldSlug(field){
     let fieldSlug = field
     .replace(/ \//g, "")
@@ -101,7 +102,7 @@ class Person extends Component {
   }
 
   renderPhone(field) {
-    let fieldSlug = fieldSlug(field)
+    let fieldSlug = this.fieldSlug(field)
     if (this.props.info.attributes[fieldSlug]) {
       return (
         <div className="modal-contact-lbl">
@@ -118,7 +119,7 @@ class Person extends Component {
   }
 
   renderAddress(field) {
-    let fieldSlug = fieldSlug(field)
+    let fieldSlug = this.fieldSlug(field)
     if (this.props.info.attributes[fieldSlug]) {
       return (
         <div>
@@ -280,7 +281,6 @@ class Person extends Component {
       let formattedBills = this.props.bills.map(b => <li>{b.title}</li>)
       return(
         <span className="modal-bold">
-          {console.log(this.props.bills)}
           <ul>{formattedBills}</ul>
         </span>
       )

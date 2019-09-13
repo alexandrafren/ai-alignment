@@ -13,10 +13,7 @@
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
-    "react-redux": "^7.1.1",
     "react-social-icons": "^2.7.0",
-    "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0",
     "save-dev": "^2.0.0"
   },
   "scripts": {

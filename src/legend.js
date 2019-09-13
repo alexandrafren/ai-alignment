@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import { sortBy, groupBy, flatten } from "lodash";
+import { Row, Container } from "react-bootstrap";
 import { legendCategories } from "./constants";
 
 class Legend extends PureComponent {
